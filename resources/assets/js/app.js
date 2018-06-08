@@ -20,3 +20,18 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+var menu = $('.menu__wrapper');
+var nav = $('.navigation__wrapper');
+
+var openMain = function () {
+    menu.animate({'font-size': 0}, 200, null, nav.animate({'font-size': '.8em'}, 600));
+};
+var openMenu = function () {
+    nav.animate({'font-size': 0}, 400, null, menu.animate({'font-size': '.8em'}, 400));
+};
+
+$('.navigation__in-circle').on('click', openMenu);
+$('.menu__return').on('click', openMain);
+
+openMain();

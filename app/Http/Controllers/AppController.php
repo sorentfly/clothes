@@ -56,7 +56,17 @@ class AppController extends Controller
             'https://99px.ru/sstorage/56/2018/03/mid_296121_871977.jpg',
             'https://pp.userapi.com/c619730/v619730086/706f/K3uuKvayw6A.jpg'
         ];
-        #echo "MVC";
+        $images = [];
+        $lol = rand(5, 8);
+        $lol_counter = 0;
+        for ($index = $i = 1;$i<41;$i++) {
+            if ($lol_counter == $lol) {$lol_counter = 0; shuffle($images[$index++]);}
+            else {
+                $images[$index][$lol_counter++] = asset("images/{$i}.jpg");
+            }
+
+        }
+
         shuffle($images);
         return view('index')->with('images', $images);
     }

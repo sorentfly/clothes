@@ -4,43 +4,46 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Laravel</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link href="{!! asset('css/app.css') !!}" media="all" rel="stylesheet" type="text/css">
-
-    <link href="{!! asset('css/screen.css') !!}" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="{!! asset('css/print.css') !!}" media="print" rel="stylesheet" type="text/css" />
-    <!--[if IE]>
-    <link href="{!! asset('css/ie.css') !!}" media="screen, projection" rel="stylesheet" type="text/css" />
-    <![endif]-->
-
 </head>
 <body>
-    <section class="wrapper main-page__wrapper">
-        @foreach($images as $image)
-            <div class="item-block" style="background-image: url({{ $image }});width: 25vw;height:25vw;"></div>
-        @endforeach;
+    <section class="wrapper main-page__wrapper" id="app">
+        @foreach($images as $groupIndex => $imageGroup)
+            @foreach($imageGroup as $index => $image)
+                <div class="item-block" style="background-image: url({{ $image }});width: 25vw;height:25vw;" data-id="{{ $groupIndex }}:{{ $index }}" data-title="" data-description=""></div>
+            @endforeach
+        @endforeach
         <div class="navigation__wrapper">
+            <div class="navigation__in-circle">
+                <h1>HOME</h1>
+            </div>
             <div class="navigation__out-circle">
-                <div class="navigation__link account">
-                    <span>A</span>
-                    <span>C</span>
-                    <span>C</span>
-                    <span>O</span>
-                    <span>U</span>
-                    <span>N</span>
-                    <span>T</span>
-                </div>
-
                 <div class="navigation__selector"></div>
             </div>
-            <div class="navigation__in-circle">
-                <h1>Brand</h1>
+        </div>
+        <div class="menu__wrapper">
+            <div class="menu__return">
+
+            </div>
+            <div class="menu__container">
+                <a href="#">
+                    <div class="menu__item">Account</div>
+                </a>
+                <a href="#">
+                    <div class="menu__item">Categories</div>
+                </a>
+                <a href="#">
+                    <div class="menu__item">About</div>
+                </a>
             </div>
         </div>
     </section>
+    <script src="{!! asset('js/app.js') !!}"></script>
 </body>
 </html>

@@ -13894,8 +13894,23 @@ window.Vue = __webpack_require__(36);
 Vue.component('example-component', __webpack_require__(39));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app'
 });
+
+var menu = $('.menu__wrapper');
+var nav = $('.navigation__wrapper');
+
+var openMain = function openMain() {
+    menu.animate({ 'font-size': 0 }, 200, null, nav.animate({ 'font-size': '.8em' }, 600));
+};
+var openMenu = function openMenu() {
+    nav.animate({ 'font-size': 0 }, 400, null, menu.animate({ 'font-size': '.8em' }, 400));
+};
+
+$('.navigation__in-circle').on('click', openMenu);
+$('.menu__return').on('click', openMain);
+
+openMain();
 
 /***/ }),
 /* 13 */
