@@ -19,7 +19,7 @@ class AppController extends Controller
      */
     function index()
     {
-        echo "MVC";
+        #echo "MVC";
         return view('index');
     }
 }

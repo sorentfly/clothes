@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);/*!
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@charset "UTF-8";
+
+/*!
  * Bootstrap v4.1.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
@@ -10411,8 +10413,145 @@ a.text-dark:focus {
   }
 }
 
+#root,
+#root body,
 .main-page__wrapper {
   height: 100%;
+}
+
+.navigation__wrapper {
+  position: absolute;
+  width: 15vw;
+  height: 15vw;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.navigation__out-circle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 50%;
+  background: #606c88;
+  /* Old browsers */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, #606c88 0%, #3f4c6b 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606c88', endColorstr='#3f4c6b',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+}
+
+.navigation__in-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: #606c88;
+  width: 80%;
+  height: 80%;
+  left: 10%;
+  top: 10%;
+}
+
+.navigation__in-circle h1 {
+  text-align: center;
+  position: relative;
+  margin: 35% auto;
+  color: #fff;
+}
+
+.navigation__selector {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  height: 100px;
+  width: 100px;
+  border: 1px solid rgba(173, 216, 231, 0.7);
+  background: rgba(173, 216, 231, 0.7);
+  border-radius: 100% 0% 100% 100%;
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.navigation__link {
+  color: #fff;
+}
+
+.navigation__link.account {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+
+.navigation__link span {
+  position: absolute;
+  /*Укажем расположение для буквы A*/
+  /*Укажем расположение для буквы C*/
+  /*Укажем расположение для буквы C*/
+  /*Укажем расположение для буквы O*/
+  /*Укажем расположение для буквы U*/
+  /*Укажем расположение для буквы N*/
+  /*Укажем расположение для буквы T*/
+}
+
+.navigation__link span:nth-of-type(-n+7) {
+  -webkit-transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
+}
+
+.navigation__link span:nth-of-type(1) {
+  -webkit-transform: rotate(323deg) translate(-50%, 95%);
+  transform: rotate(323deg) translate(-50%, 95%);
+  left: 20%;
+  top: 0;
+}
+
+.navigation__link span:nth-of-type(2) {
+  -webkit-transform: rotate(335deg) translate(-50%, 40%);
+  transform: rotate(335deg) translate(-50%, 40%);
+  left: 30%;
+  top: 0;
+}
+
+.navigation__link span:nth-of-type(3) {
+  -webkit-transform: rotate(345deg) translate(-50%, 10%);
+  transform: rotate(345deg) translate(-50%, 10%);
+  left: 40%;
+  top: 0;
+}
+
+.navigation__link span:nth-of-type(4) {
+  -webkit-transform: rotate(0deg) translateX(-50%);
+  transform: rotate(0deg) translateX(-50%);
+  left: 50%;
+  top: 0;
+}
+
+.navigation__link span:nth-of-type(5) {
+  -webkit-transform: rotate(15deg) translate(-50%, 10%);
+  transform: rotate(15deg) translate(-50%, 10%);
+  left: 60%;
+  top: 0;
+}
+
+.navigation__link span:nth-of-type(6) {
+  -webkit-transform: rotate(25deg) translate(-50%, 40%);
+  transform: rotate(25deg) translate(-50%, 40%);
+  left: 70%;
+  top: 0;
+}
+
+.navigation__link span:nth-of-type(7) {
+  -webkit-transform: rotate(37deg) translate(-50%, 95%);
+  transform: rotate(37deg) translate(-50%, 95%);
+  left: 80%;
+  top: 0;
 }
 
 .navbar-laravel {
