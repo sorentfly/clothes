@@ -1,3 +1,6 @@
+// Compass
+//@import "compass";
+//@import "~compass-mixins/lib/compass";
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
@@ -6,20 +9,32 @@
 @import "variables";
 
 // Bootstrap
+//@import '~bootstrap/scss/bootstrap';
 @import '~bootstrap/scss/bootstrap';
 
 
 #root,
-#root body,
+#root body {
+  min-height: 100%;
+}
+
 .main-page__wrapper {
-  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item-block {
+  background-size: cover;
+  background: no-repeat center;
 }
 
 .navigation {
   &__wrapper {
-    position: absolute;
-    width: 15vw;
-    height: 15vw;
+    position: fixed;
+    font-size: .8em; // Быстрое управление размером блока
+    width: 15em;
+    height: 15em;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -35,9 +50,12 @@
     background: -webkit-radial-gradient(center, ellipse cover, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%); /* Chrome10-25,Safari5.1-6 */
     background: radial-gradient(ellipse at center, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606c88', endColorstr='#3f4c6b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    animation: brand 25s infinite ease-in-out;
   }
   &__in-circle {
     position: absolute;
+    cursor: pointer;
     border-radius: 50%;
     background: #606c88;
     width: 80%;
@@ -45,19 +63,34 @@
     left: 10%;
     top: 10%;
 
+    -webkit-transition: box-shadow .4s ease-out;
+    -moz-transition: box-shadow .4s ease-out;
+    -ms-transition: box-shadow .4s ease-out;
+    -o-transition: box-shadow .4s ease-out;
+    transition: box-shadow .4s ease-out;
+
     h1 {
       text-align: center;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      font-size: 2.7em;
       position: relative;
-      margin: 35% auto;
+      margin: 1.6em auto;
       color: $white;
+    }
+
+    &:hover {
+      box-shadow: 0 0 2em #9586b6;
     }
   }
   &__selector {
     position: absolute;
     margin: 0;
     padding: 0;
-    height: 100px;
-    width: 100px;
+    height: 7.5em;
+    width: 7.5em;
     border: 1px solid rgba(173, 216, 231, 0.7);
     background: rgba(173, 216, 231, 0.7);
     border-radius: 100% 0% 100% 100%;
@@ -65,6 +98,10 @@
   }
   &__link {
     color: #fff;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     &.account {
       display: none;
@@ -141,4 +178,9 @@
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+@keyframes brand {
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(360deg)}
 }
