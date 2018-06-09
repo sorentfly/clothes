@@ -21,17 +21,38 @@ const app = new Vue({
     el: '#app'
 });
 
+require('./cycle');
+
 var menu = $('.menu__wrapper');
 var nav = $('.navigation__wrapper');
 
 var openMain = function () {
-    menu.animate({'font-size': 0}, 200, null, nav.animate({'font-size': '.8em'}, 600));
+    menu.animate({'font-size': 0}, 500, null, nav.animate({'font-size': '.8em'}, 600));
 };
 var openMenu = function () {
     nav.animate({'font-size': 0}, 400, null, menu.animate({'font-size': '.8em'}, 400));
+};
+var slidePicture = function () {
+    var container_list = $('.item-block');
+    container_list.each(function (index, element) {
+        var kids = $(element).children();
+        var count = kids.length;
+        var $kid;
+        for (var i = 0; i < count; i++) {
+            $kid = $(kids[i]);
+            if ($kid.css('display') === 'block') {
+                $kid.css('display', 'none');
+                $(kids[++i < count ? i : 0]).css('display', 'block');
+                break;
+            }
+        }
+    });
 };
 
 $('.navigation__in-circle').on('click', openMenu);
 $('.menu__return').on('click', openMain);
 
-openMain();
+$(document).ready(function () {
+    setTimeout(openMain, 2000);
+    setInterval(slidePicture, 2000);
+});

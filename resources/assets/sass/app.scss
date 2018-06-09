@@ -21,22 +21,44 @@
 .main-page__wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .item-block {
-  background-size: cover !important;
-  background: no-repeat center;
   cursor: pointer;
+  width: 24.5vw;
+  height: 24.5vw;
+  margin-bottom: .5em;
 
 
-  @include transition(transform .4s ease-out);
+  @include transition(all .5s ease-in);
   &:hover {
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
     transform: scale(1.1);
+
+    -webkit-box-shadow: 0 5em 5em #3F4C6B;
+    -moz-box-shadow: 0 5em 5em #3F4C6B;
+    box-shadow: 0 5em 5em #3F4C6B;
+
+    & .item-block__inner {
+      border-radius: 5%;
+    }
+  }
+
+  &__inner {
+    display: none;
+    background-size: cover !important;
+    background: no-repeat center;
+    width: inherit;
+    height: inherit;
+
+    @include transition(all .5s ease-in);
+    &:first-child {
+      display: block;
+    }
   }
 }
 
@@ -194,6 +216,7 @@
   &__item {
     color: inherit;
     font-size: 2em;
+    @include transition(all .0s ease-in);
   }
   &__return {
     position: absolute;

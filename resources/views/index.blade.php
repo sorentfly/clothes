@@ -15,9 +15,11 @@
 <body>
     <section class="wrapper main-page__wrapper" id="app">
         @foreach($images as $groupIndex => $imageGroup)
+            <div class="item-block">
             @foreach($imageGroup as $image)
-                <div class="item-block" style="background-image: url({!! asset("images/$image->file_link") !!});width: 25vw;height:25vw;" data-id="{{ $image->id }}" data-title="{{ $items[$image->item_id]->title }}" data-description="{{ $items[$image->item_id]->description }}"></div>
+                <div class="item-block__inner" style="background-image: url({!! asset("images/$image->file_link") !!});" data-id="{{ $image->id }}" data-title="{{ $items[ $image->item_id - 1 ]->title }}" data-description="{{ $items[ $image->item_id - 1 ]->description }}"></div>
             @endforeach
+            </div>
         @endforeach
         <div class="navigation__wrapper">
             <div class="navigation__in-circle">
