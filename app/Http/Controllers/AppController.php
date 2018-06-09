@@ -22,7 +22,7 @@ class AppController extends Controller
         $images = DB::table('pictures')->get();
 
 
-        shuffle($images);
+        #shuffle($images);
         return view('index')->with('images', $images);
     }
 }
