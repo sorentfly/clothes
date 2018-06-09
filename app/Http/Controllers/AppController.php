@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
+#use Illuminate\Support\Facades\DB;
+use App\Item;
+use Illuminate\Http\Request;
 
 class AppController extends Controller
 {
@@ -19,10 +21,16 @@ class AppController extends Controller
      */
     function index()
     {
-        $images = DB::table('pictures')->get();
+        $item = new Item();
 
+        $item_list = $item::all();
+        $pictures = [];
+        $i = 0;
 
-        #shuffle($images);
-        return view('index')->with('images', $images);
+        foreach ($item_list as $num => $one_item) {
+            $pictures[$i++] = $one_item->getRelatedPictures();
+        }
+
+        return view('index')->with('images', $pictures)->with('items', $item_list);
     }
 }
