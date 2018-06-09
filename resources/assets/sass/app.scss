@@ -22,13 +22,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding: 2em 1em 1em;
 }
 
 .item-block {
   cursor: pointer;
-  width: 24.5vw;
-  height: 24.5vw;
-  margin-bottom: .5em;
+  width: 23.5vw;
+  height: 23.5vw;
+  margin-bottom: 1em;
+  box-shadow: 0 .5em .5em #3F4C6B;
 
 
   @include transition(all .5s ease-in);
@@ -44,7 +46,7 @@
     box-shadow: 0 5em 5em #3F4C6B;
 
     & .item-block__inner {
-      border-radius: 5%;
+      border-radius: 5% 5% 0 0;
     }
   }
 
